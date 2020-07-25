@@ -19,7 +19,7 @@
         <meta property="og:image" content="">
 
         <!-- Icons -->
-        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers dioum-->
         <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
         <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
          <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.css') }}">
 
-        
+
     </head>
     <body>
         <div id="page-container" class="main-content-boxed">
@@ -72,16 +72,16 @@
                 </div>
                 <!-- END Hero -->
 
-               
 
-              
+
+
 
                 <!-- Footer -->
                 <footer id="page-footer" class="bg-light">
                     <div class="content py-5">
                         <div class="row font-size-sm">
                             <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-right">
-                                Created by Ousmane NDiaye 
+                                Created by Ousmane NDiaye
                             </div>
                             <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
                                 <a class="font-w600" href="" target="_blank">Copyright</a> &copy; <span data-toggle="year-copy"></span>
@@ -95,9 +95,9 @@
         </div>
         <!-- END Page Container -->
 
-        
+
         <script src="{{ asset('assets/js/oneui.core.min.js') }}"></script>
-        
+
 
         <!--
             OneUI JS
