@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/index', function () {
     return view('index');
 });
@@ -35,15 +24,19 @@ Route::match(['get', 'post'], '/dashboard', function(){
 
 //Admin login
 Route::namespace('Admin')->group(function() {
-    Route::get('/admin/login','auth\LoginController@showLoginForm')->name('admin.login');
-    Route::post('/admin/login','auth\LoginController@login')->name('admin.log');
+    Route::get('admin.login','auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('admin.login','auth\LoginController@login')->name('admin.log');
 });
- Route::get('/admin/home','AdminController@index')->name('admin.home');
+ Route::get('admin.home','AdminController@index')->name('admin.home');
 
 //programme route
 Route::get('programme.programmeProf','ProgrammeController@showProg')->name('programme');
-Route::get('programme.programmeProf/{prog}','ProgrammeController@showDetails')->name('programme.show');
+Route::get('programme.show/{id}','ProgrammeController@showfil')->name('show.programme');
+Route::get('programme.description/{NOM}','ProgrammeController@showdescription')->name('show.description');
 
+
+//PROGRAMME TECHNIQUE ROUTE
+Route::get('programme.Technique','PROTECHController@index')->name('show.serie');
 
 //filiere route
 Route::get('filiere.show','FiliereController@index');

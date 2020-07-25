@@ -127,7 +127,7 @@
      </div>
 
 	<!-- Footer section -->
-	<footer class="footer-section">
+	<footer class="footer-section container-fluid">
 		<div class="container footer-top">
 			<div class="row">
 				<!-- widget -->

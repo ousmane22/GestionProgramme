@@ -10,6 +10,6 @@ class Statu extends Model
 
     public function programme()
     {
-        $this->hasMany('Programme::class');
+       return  $this->hasMany('Programme::class');
     }
 }

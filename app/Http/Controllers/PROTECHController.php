@@ -1,17 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
-use App\Filiere;
-use App\Modalite;
-use App\Partenaire;
-use App\Programme;
-use App\Statu;
-use App\Validation;
-use Facade\FlareClient\Stacktrace\File;
+
+use App\Classe;
+use App\Matiere;
+use App\ProgrammeTech;
+use App\Serie;
 use Illuminate\Http\Request;
 
-class ProgrammeController extends Controller
+class PROTECHController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +17,20 @@ class ProgrammeController extends Controller
      */
     public function index()
     {
-        $filiere = Filiere::all();
-        $modalite = Modalite::all();
-        $statut = Statu::all();
-        $validation = Validation::all();
-        $partenaire = Partenaire::all();
-        $prog = Programme::all();
-        return view('programme.show',compact('prog','filiere','modalite','statut','validation','partenaire'));
-        
+        $serie = Serie::all();
+        $classe = Classe::all();
+        $matiere = Matiere::all();
+        $pt = ProgrammeTech::distinct()->select('idClasse')->where('idSerie','=' ,1)->groupBy('idClasse')->get();
+        dd($pt);
+        return view('programme.Technique',compact('serie','classe','matiere','pt'));
+       
     }
+
+    // public function showClasse($id)
+    // {
+    //     $classe = Classe::where('idSerie',$id)->get();
+    //     return json_encode($classe);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -51,29 +53,6 @@ class ProgrammeController extends Controller
         //
     }
 
-    public function showProg()
-    {
-      
-        $fil = Filiere::all();
-        $prog = Programme::paginate(8);
-        return view('programme.programmeProf',compact('fil','prog'));
-    }
-
-    public function Showfil($id)
-    {
-            $fil_prog = Programme::where('filiere_id',$id)->get();
-        return view('programme.show',compact('fil_prog'));
-        
-    }
-
-    public function Showdescription($des)
-    {
-            $description = Programme::where('description',$des)->get();
-            return view('programme.description',compact('description'));
-        
-    }
-
-     
     /**
      * Display the specified resource.
      *
@@ -96,7 +75,6 @@ class ProgrammeController extends Controller
         //
     }
 
-    
     /**
      * Update the specified resource in storage.
      *

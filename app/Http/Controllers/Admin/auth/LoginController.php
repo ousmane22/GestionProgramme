@@ -34,10 +34,10 @@ class LoginController extends Controller
      *'
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
 
      /**
      * Show the application's login form.
@@ -46,6 +46,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+        
         return view('admin.login');
     }
 
@@ -59,6 +60,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+      
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
