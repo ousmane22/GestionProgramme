@@ -3,9 +3,12 @@
   @section('content')
 
   <div class="mt-5 col-md-12 mb-3 pr-3 pb-5">
-       @foreach($fil as $fils)
-             <a href="{{ route('show.programme',$fils->id) }}" class="btn btn-info">{{ $fils->NOM }}</a>
-        @endforeach   
+             <select name="" id="" class="form-control">
+                <option value="" disabled>Choisir</option>
+                @foreach($fil as $fils)
+                 <option value=""><a href="{{ route('show.programme',$fils->id) }}" class="btn btn-info">{{ $fils->NOM }}</a></option>
+                @endforeach 
+             </select>
   </div>
 
      
