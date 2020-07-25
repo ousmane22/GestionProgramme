@@ -31,7 +31,7 @@ Route::namespace('Admin')->group(function() {
 
 //programme route
 Route::get('programme.programmeProf','ProgrammeController@showProg')->name('programme');
-Route::get('programme.show/{id}','ProgrammeController@showfil')->name('show.programme');
+Route::get('programme.show/{NOM}','ProgrammeController@showfil')->name('show.programme');
 Route::get('programme.description/{NOM}','ProgrammeController@showdescription')->name('show.description');
 
 

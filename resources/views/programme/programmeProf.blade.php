@@ -6,9 +6,10 @@
              <select name="" id="" class="form-control">
                 <option value="" disabled>Choisir</option>
                 @foreach($fil as $fils)
-                 <option value=""><a href="{{ route('show.programme',$fils->id) }}" class="btn btn-info">{{ $fils->NOM }}</a></option>
+                 <option value=""><a href="{{ route('show.programme',$fils->NOM) }}" class="btn btn-info">{{ $fils->NOM }}</a></option>
                 @endforeach 
              </select>
+             
   </div>
 
      
