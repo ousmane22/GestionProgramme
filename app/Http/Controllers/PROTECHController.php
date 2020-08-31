@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Classe;
-use App\Matiere;
-use App\ProgrammeTech;
-use App\Serie;
+use App\Models\Serie;
+use App\Models\Classe;
+use App\Models\Matiere;
+use App\Models\MatiereParSeries;
+use App\Models\ProgrammeTech;
 use Illuminate\Http\Request;
 
 class PROTECHController extends Controller
@@ -20,17 +21,27 @@ class PROTECHController extends Controller
         $serie = Serie::all();
         $classe = Classe::all();
         $matiere = Matiere::all();
-        $pt = ProgrammeTech::distinct()->select('idClasse')->where('idSerie','=' ,1)->groupBy('idClasse')->get();
-        dd($pt);
-        return view('programme.Technique',compact('serie','classe','matiere','pt'));
+        // $pt = ProgrammeTech::distinct()->select('idClasse')->where('idSerie','=' ,1)->groupBy('idClasse')->get();
+        return view('programme.Technique',compact('serie','classe','matiere'));
        
     }
 
-    // public function showClasse($id)
-    // {
-    //     $classe = Classe::where('idSerie',$id)->get();
-    //     return json_encode($classe);
-    // }
+    public function showClasse()
+    {
+
+        // $classe = MatiereParSeries::select('matiere_id')
+        // ->where('serie_id',$id)
+        // ->get();
+        // $nClasse = Matiere::all();
+        // $serie = Serie::get();
+        // dd($classe);
+         $serie = Serie::with('matieres')->get();
+        // $serie = Serie::find($id);
+        // $matiere = $serie->matieres()
+        // ->get();
+       
+        return view('programme.showClasse',compact('serie'));
+    }
 
     /**
      * Show the form for creating a new resource.
