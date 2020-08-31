@@ -46,7 +46,28 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapUtilisateurRoutes();
+
         //
+    }
+
+    /**
+     * Define the "utilisateur" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapUtilisateurRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'utilisateur', 'auth:utilisateur'],
+            'prefix' => 'utilisateur',
+            'as' => 'utilisateur.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/utilisateur.php');
+        });
     }
 
     /**

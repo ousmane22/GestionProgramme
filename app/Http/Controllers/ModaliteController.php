@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Modalite;
+use App\Models\Modalite;
 use Illuminate\Http\Request;
 
 class ModaliteController extends Controller

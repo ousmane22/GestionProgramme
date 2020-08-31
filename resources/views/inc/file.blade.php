@@ -18,10 +18,15 @@
         <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
 
+        
+        <!-- font -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;562;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@700&display=swap" rel="stylesheet">
+        
         <!-- Fonts and Styles -->
         @yield('css_before')
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-        <link rel="stylesheet" id="css-main" href="{{ asset('css/oneui.css') }}">
+        <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.css') }}">
 
         
         @yield('css_after')
@@ -37,9 +42,9 @@
                     <div class="bg-black-50">
                         <div class="content content-full overflow-hidden">
                             <div class="mt-7 mb-5 text-center">
-                                <h1 class="h2 text-white mb-2 invisible" data-toggle="appear" data-class="animated fadeInDown">Liste des Programmes.</h1>
+                                <h1 class="h2 text-white mb-2 invisible" data-toggle="appear" id="" data-class="animated fadeInDown">Liste des Programmes.</h1>
                                 <h2 class="h4 font-w400 text-white-75 invisible" data-toggle="appear" data-class="animated fadeInDown"></h2>
-                                <a class="btn btn-rounded btn-success px-4 py-2 invisible" data-toggle="appear" data-class="animated zoomIn" href="javascript:void(0)">Retour Acceuil</a>
+                                <a class="btn btn-rounded btn-success px-4 py-2 invisible" data-toggle="appear" data-class="animated zoomIn" href="/acceuil">Retour Acceuil</a>
                             </div>
                         </div>
                     </div>
