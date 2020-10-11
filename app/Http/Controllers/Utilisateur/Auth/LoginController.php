@@ -72,7 +72,7 @@ class LoginController extends Controller
     {
         Auth::logout();
         Flashy::message('A bientôt');
-        return redirect('programme');
+        return redirect()->route('programme');
         
     }
 

@@ -35,12 +35,16 @@ class PROTECHController extends Controller
         // $nClasse = Matiere::all();
         // $serie = Serie::get();
         // dd($classe);
-         $serie = Serie::with('matieres')->get();
+         $serie = Serie::with('technique')->get();
+        $classe = Classe::with('technique')->get();
         // $serie = Serie::find($id);
         // $matiere = $serie->matieres()
         // ->get();
+
+   
+        
        
-        return view('programme.showClasse',compact('serie'));
+        return view('programme.showClasse',compact('serie','classe'));
     }
 
     /**

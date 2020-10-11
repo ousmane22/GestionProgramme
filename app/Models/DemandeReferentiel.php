@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class DemandeReferentiel extends Pivot
 {
-    protected $table = 'demande_referentiel';
+    protected $table = 'demrefprogs';
 }

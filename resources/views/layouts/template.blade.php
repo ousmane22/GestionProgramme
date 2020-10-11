@@ -28,6 +28,8 @@
 	<link rel="stylesheet" href="{{ asset('template/css/animate.css') }}" />
 	<link rel="stylesheet" href="{{ asset('template/css/owl.carousel.css') }}" />
 	<link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+
 
 	<link href="https://fonts.googleapis.com/css2?family=Recursive:wght@600&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">

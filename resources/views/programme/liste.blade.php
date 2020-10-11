@@ -18,11 +18,13 @@
               <tr>
                 <th class="">Nom</th>
                 <th class="">Filiere</th>
+                <th>Niveau</th>
                 <th class="">Status</th>
                 <th class="">Modalite</th>
                 <th class="">Validation</th>
                 <th class="">Partenaire</th>
                 <th>Action</th>
+                <th>Referentiel</th>
               </tr>
             </thead>
 
@@ -31,6 +33,13 @@
               <tr>
                 <td>{{ $programmes->NOM }}</td>
                 <td>{{ $programmes->filiere->NOM }}</td>
+
+                <td>
+                  @foreach($programmes->niveau as $niv)
+                  {{ $niv->TYPE }},
+                  @endforeach
+                </td>
+
                 <td>{{ $programmes->statu->TYPE }}</td>
                 <td>{{ $programmes->modalite->TYPE }}</td>
                 <td>{{ $programmes->validation->NOM }}</td>
@@ -38,6 +47,9 @@
                 <td>
                   <a href="{{ route('edit.programme',$programmes->id) }}"><i class="fa fa-edit" style="color:rgb(246, 120, 58);"></i></a>
                   <a href="{{ route('delete.programme',$programmes->id) }}" onclick="return confirm('Vouler vous supprimez ce programme')"><i class="fa fa-trash-restore-alt" style="color:red;"></i></a>
+                </td>
+                <td>
+                   <a href="{{ route('referentielProgramme',$programmes->id) }}" class="btn btn-dark">Ajouter Référentiel</i></a>
                 </td>
               </tr>
               @endforeach

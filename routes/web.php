@@ -40,6 +40,16 @@ Route::get('programme.edit/{id}', 'AdminController@edit')->name('edit.programme'
 Route::post('programme.update/{id}', 'AdminController@update')->name('update.programme')->middleware('admin');
 Route::get('programme.delete/{id}', 'AdminController@destroy')->name('delete.programme')->middleware('admin');
 
+//show and store projet
+Route::get('projets', 'AdminController@projet')->name('projet')->middleware('admin');
+Route::post('pro', 'AdminController@storeProjet')->name('projets.save')->middleware('admin');
+Route::get('projetList', 'AdminController@listProjet')->name('projets.list');
+//rechercher un projet
+Route::get('/rechercher','AdminController@rechercherProjet')->name('projets.rechercher');
+
+
+
+
 //update etat programme
 // Route::get('admin/home/{id}', 'HomeController@updateEtatProgramme')->middleware('admin');
 Route::get('admin.GetDemande', 'HomeController@getDemande')->middleware('admin')->name('getdemande');
@@ -50,7 +60,7 @@ Route::get('admin.rejeterProgramme/{id}', 'HomeController@rejeterProgramme')->mi
 
 
 //Route user
-Route::get('user/home', 'HomeController@user')->middleware('user');
+Route::get('user/home', 'HomeController@user')->middleware('user')->name('user.home');
 
 //store renseignement etablissement
 Route::post('user/home', 'HomeController@AddRenseigneEta')->name('show.RE')->middleware('user');
@@ -78,7 +88,7 @@ Route::get('/EFPT.show', 'EFPTController@index');
 Route::get('/EFPT.departement/{NOM_DEPT}', 'EFPTController@Showdepartement')->name('departement.show');
 Route::get('/EFPT.departInfo/{id}', 'EFPTController@DepartWithEtabli')->name('depart.eta');
 Route::get('/EFPT.showProg/{id}', 'EFPTController@ProparEtablissement')->name('prog.eta');
-Route::get('/EFPT.infoPro/{id}', 'EFPTController@ProgrammeInfo')->name('prog.info');
+Route::get('/EFPT.infoPro/{id}/{id1}/{id2}/{id3}', 'EFPTController@ProgrammeInfo')->name('prog.info');
 
 
 
@@ -127,11 +137,15 @@ Route::get('/utilisateur/acceuil/{id}', 'DProgrammeController@getidProgramme')->
 Route::get('/MesProgrammes', 'DProgrammeController@UtilisateurProgramme')->name('UtilisateurProgramme')->middleware('utilisateur');
 
 //Referentile Route
-Route::get('/refe','ReferentielController@RefenctielProgramme')->name('referentielProgramme');
-Route::post('/','ReferentielController@StoreReferentileWithProgramme')->name('storeRef');
+Route::get('/refe/{id}','ReferentielController@RefenctielProgramme')->name('referentielProgramme')->middleware('admin');
+Route::post('/','ReferentielController@StoreReferentileWithNiveau')->name('storeRef');
 Route::get('OpenReferentiel/{id}', 'DProgrammeController@ifDemandeIsValid')->name('getReferentiel');
 
+//getRefByNiveau
+Route::get('getRefByNiveau/{id}/{id1}', 'DProgrammeController@getRefByNiveau')->name('getRef');
 
+
+Route::get('/voirplus/{id}', 'DProgrammeController@voirPLus')->name('voirplus')->middleware('admin');
 
 
 

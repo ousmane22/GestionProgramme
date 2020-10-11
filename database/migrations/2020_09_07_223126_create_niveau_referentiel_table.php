@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDemandeReferentielTable extends Migration
+class CreateNiveauReferentielTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateDemandeReferentielTable extends Migration
      */
     public function up()
     {
-        Schema::create('demande_referentiel', function (Blueprint $table) {
+        Schema::create('niveau_referentiel', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('demande_id')->constrained();
+            $table->foreignId('programme_id')->constrained();
+            $table->foreignId('niveau_id')->constrained();
             $table->foreignId('referentiel_id')->constrained();
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ class CreateDemandeReferentielTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demande_referentiel');
+        Schema::dropIfExists('niveau_referentiel');
     }
 }

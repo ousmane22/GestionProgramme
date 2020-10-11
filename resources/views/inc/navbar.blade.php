@@ -7,26 +7,14 @@
 
 			</div>
 			<ul class="main-menu">
-				<li class="active"><a href="/acceuil">Accueil</a></li>
+				<li class="{{ Request::segment(1) === 'acceuil' ? 'active' : null }}"><a href="/acceuil">Accueil</a></li>
 
 
-				<li class="nav-item dropdown" style="margin-left: 5px">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						PROGRAMMES
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #020031;">
-						<a class="dropdown-item" href="/programme.Technique" style="max-height: 5px">Techniques</a>
-						<hr style="background-color: orange;max-height: 2px" style="max-height: 5px">
-						<a class="dropdown-item " href="/programme.programmeProf" style="max-height: 5px">Professionnels</a>
-						@if(!Auth::guard('utilisateur')->user());
-						<a class="dropdown-item " href="/utilisateur/login" style="max-height: 5px">Mon Espace</a>
-						@endif
-					</div>
-				</li>
+				<li class="{{ Request::segment(1) === 'programme.programmeProf' ? 'active' : null }}"><a href="/programme.programmeProf">Programmes</a></li>
 
-				<li><a href="EFPT.show">EFPT</a></li>
-				<li><a href=""> Projets</a></li>
-				<li><a href="/documents.documents">DOCUMENTATION</a></li>
+				<li class="{{ Request::segment(1) === 'EFPT.show' ? 'active' : null }}"><a href="EFPT.show">EFPT</a></li>
+				<li class="{{ Request::segment(1) === 'projetList' ? 'active' : null }}"><a href="{{ route('projets.list') }}">Projets</a></li>
+				<li class="{{ Request::segment(1) === 'documents.documents' ? 'active' : null }}"><a href="/documents.documents">DOCUMENTATION</a></li>
 
 				<li class="nav-item dropdown" style="margin-left: 5px">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

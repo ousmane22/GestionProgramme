@@ -213,6 +213,29 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                            <i class="nav-main-link-icon si si-bulb"></i>
+                            <span class="nav-main-link-name active">GESTION Projet</span>
+                        </a>
+                        <ul class="nav-main-submenu">
+                            <li class="nav-main-item">
+                                <h5>
+                                    <a class="nav-main-link active" href="{{ route('projet') }}">
+                                        <span class="nav-main-link-name">Ajouter Projet</span>
+                                    </a>
+                                </h5>
+
+                                <h5>
+                                    <a class="nav-main-link active" href="{{ route('projets.list') }}">
+                                        <span class="nav-main-link-name">Liste Projet</span>
+                                    </a>
+                                </h5>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
             <!-- END Side Navigation -->

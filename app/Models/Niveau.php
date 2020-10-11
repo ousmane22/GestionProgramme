@@ -18,5 +18,21 @@ class Niveau extends Model
     //     return $this->belongsToMany(Etablissement::class);
     // }
 
+    public function demandeprogramme()
+    {
+        return $this->belongsToMany(DemandeProgramme::class, 'demrefprogs', 'niveau_id', 'demande_id');
+    }
+
+    public function referentiel()
+    {
+        return $this->belongsToMany(Referentiel::class, 'niveau_referentiel', 'niveau_id', 'referentiel_id');
+    }
+
+    public function programme()
+    {
+        return $this->belongsToMany(Programme::class, 'programme_niveau', 'niveau_id', 'programme_id');
+    }
+
+
 }
 

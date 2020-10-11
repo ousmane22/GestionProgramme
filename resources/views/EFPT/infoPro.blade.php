@@ -109,6 +109,31 @@
   </div>
  </div>
  <!-- END Stats -->
-</DIV>
 
-@endsection
+ <!-- Page Content -->
+ <div class="content content-narrow mb-10 mt-3">
+  <h1 class="text-center" style="color:rgb(246, 120, 58);">Statistiques Nationales</h1>
+  <!-- Stats -->
+  <div class="row">
+   <div class="col-6 col-md-3 col-lg-12 col-xl-6">
+    <a class="block block-rounded block-link-pop border-left border-primary border-4x" href="javascript:void(0)">
+     <div class="block-content block-content-full">
+      <div class="font-size-sm font-w600 text-uppercase">Effectifs Garçons</div>
+      <div class="font-size-h2 font-w400 text-dark">{{ ($nationalGarcon) }}</div>
+     </div>
+    </a>
+   </div>
+
+   <div class="col-6 col-md-3 col-lg-12 col-xl-6">
+    <a class="block block-rounded block-link-pop border-left border-primary border-4x" href="javascript:void(0)">
+     <div class="block-content block-content-full">
+      <div class="font-size-sm font-w600 text-uppercase">Effectifs Filles</div>
+      <div class="font-size-h2 font-w400 text-dark">{{ ($nationalFille) }}</div>
+     </div>
+    </a>
+   </div>
+  </div>
+  <!-- END Stats -->
+ </DIV>
+
+ @endsection

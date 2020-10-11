@@ -65,7 +65,7 @@ class HomeController extends Controller
     public function getDemande()
     {
         $utilisateur =Utilisateur::all();
-        $demande =  DemandeProgramme::with('referentiel')
+        $demande =  DemandeProgramme::with('referentiel','programme')
         ->orderBy('id','DESC')->paginate(5);
         return view('admin.GetDemande',compact('demande','utilisateur'));
     }
@@ -101,7 +101,7 @@ class HomeController extends Controller
     {
 
         $data = $request->validate([
-            'NOM_ETA' => ['required', 'string', 'unique:etablissements'],
+            'NOM_ETA' => ['required', 'string'],
             'departement_id' => ['required'],
             'TEL_ETBLMT' => ['required', 'integer'],
             'EMAIL_ETBLMT' => ['required', 'email', 'unique:etablissements'],
@@ -111,7 +111,7 @@ class HomeController extends Controller
         $etablissement = Etablissement::create($data);
         $etablissement->save();
         Flashy::message('Etablissement ajouté');
-        return redirect()->route('re.etablissement');
+        return redirect()->route('user.home');
     }
 
 
@@ -131,7 +131,7 @@ class HomeController extends Controller
             'niveau_id' => ['required'],
             'programme_id' => ['required', 'integer',],
             'anne_aca' => ['required', 'date'],
-            'anne_niv' => ['required', 'date'],
+            'anne_niv' => ['required'],
             'Effectif_garcon' => ['required', 'numeric', 'gt:0'],
             'Effectif_fille' => ['required', 'numeric', 'gt:0'],
 
@@ -141,6 +141,6 @@ class HomeController extends Controller
         $programme->save();
         
         Flashy::message('Renseignements Etablissement ajoutés');
-        return redirect()->route('show.RE');  
+        return redirect()->route('re.etablissement')->with('success', 'Renseignements Etablissement ajoutés');  
     }
 }

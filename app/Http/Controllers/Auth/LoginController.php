@@ -43,7 +43,12 @@ class LoginController extends Controller
          $this->middleware('guest')->except('logout');
     }
 
-   
+    public function logoutToPath()
+    {
+        Auth::logout();
+        Flashy::message('A bientôt');
+        return redirect()->route('programme');
+    }
 
    
  

@@ -7,21 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Referentiel extends Model
 {
     protected $guarded = [];
-    public $timestamps = false;
 
-
-   
 
     public function programme()
     {
-        return $this->belongsTo(Programme::class);
+        return $this->belongsToMany(Programme::class, 'niveau_referentiel','referentiel_id','programme_id');
     }
 
     public function demandeprogramme()
     {
-        return $this->belongsToMany(DemandeProgramme::class, 'demande_referentiel','referentiel_id','demande_id');
+        return $this->belongsToMany(DemandeProgramme::class);
     }
 
-   
-    
+    public function niveau()
+    {
+        return $this->belongsToMany(Niveau::class,'niveau_referentiel', 'referentiel_id', 'niveau_id');
+    }
 }

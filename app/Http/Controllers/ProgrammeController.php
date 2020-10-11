@@ -6,6 +6,7 @@ use App\Models\Filiere;
 use App\Models\Modalite;
 use App\Models\Niveau;
 use App\Models\Partenaire;
+use App\Models\Programm;
 use App\Models\Programme;
 use App\Models\Statu;
 use App\Models\Validation;
@@ -51,15 +52,20 @@ class ProgrammeController extends Controller
     {
       
         $fil = Filiere::all();
-        $prog = Programme::orderBy('id', 'DESC')->paginate(8);
+        $prog = Programme::with('niveau')
+        ->orderBy('id', 'DESC')->paginate(8);
+
         return view('programme.programmeProf',compact('fil','prog'));
     }
 
     public function Showfil($id)
     {
 
-        $fil_prog = Programme::where('filiere_id',$id)->get();
-         $fil = Filiere::all();
+        $fil_prog = Programme::where('filiere_id',$id)
+        ->paginate(8);
+       
+         $fil = Filiere::find($id)
+         ->where('id',$id)->get();
         return view('programme.show',compact('fil_prog','fil'));
         
     }

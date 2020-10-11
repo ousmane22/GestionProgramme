@@ -12,7 +12,7 @@
     <div class="content content-narrow">
         <!-- Stats -->
         <div class="row">
-            <div class="col-md-4 col-lg-6 col-xl-4">
+            <div class="col-md-4 col-lg-6 col-xl-3">
                 <a class="block block-rounded block-link-pop border-left border-primary border-4x" href="javascript:void(0)">
                     <div class="block-content block-content-full">
                         <div class="font-size-sm font-w600 text-uppercase" style="color:rgb(246, 120, 58);">Centre Formation</div>
@@ -20,7 +20,7 @@
                     </div>
                 </a>
             </div>
-            <div class=" col-md-3 col-lg-6 col-xl-4">
+            <div class=" col-md-3 col-lg-6 col-xl-3">
                 <a class="block block-rounded block-link-pop border-left border-primary border-4x" href="javascript:void(0)">
                     <div class="block-content block-content-full">
                         <div class="font-size-sm font-w600 text-uppercase" style=" color:rgb(246, 120, 58);">Effectif Garçons</div>
@@ -28,7 +28,7 @@
                     </div>
                 </a>
             </div>
-            <div class=" col-md-3 col-lg-6 col-xl-4">
+            <div class=" col-md-3 col-lg-6 col-xl-3">
                 <a class="block block-rounded block-link-pop border-left border-primary border-4x" href="javascript:void(0)">
                     <div class="block-content block-content-full">
                         <div class="font-size-sm font-w600 text-uppercase" style=" color:rgb(246, 120, 58);">Effectif Filles</div>
@@ -36,12 +36,26 @@
                     </div>
                 </a>
             </div>
+         
+                <div class=" col-md-12 col-lg-12 col-xl-3">
+                    <a class="block block-rounded block-link-pop border-left border-primary border-4x" href="javascript:void(0)">
+                        <div class="block-content block-content-full text-center">
+                            <div class="font-size-sm font-w600 text-uppercase" style=" color:rgb(246, 120, 58);"> Total</div>
+                            <div class="font-size-h2 font-w400" style="color:  #020031;">{{ ($total) }}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+
     <!-- END Stats -->
     <div class="row">
-        <div class="col-md-12 col-lg-10 ml-8 mb-4">
-            <img src="{{ asset('template/img/cartes/senegal.gif') }}" alt="dkr" width="80%" usemap="#carte_senegal" class="mt-7 mb-5" />
+        <div class="col-md-12 col-lg-10 ml-10 mb-4">
+            <img src="{{ asset('template/img/cartes/senegal.gif') }}" alt="dkr" usemap="#carte_senegal" class="mt-7 mb-5" />
         </div>
     </div>
 

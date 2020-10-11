@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
   <h1 class="text-center" style="color:rgb(246, 120, 58);">Ajouter Un Nouveau Programme</h1>
-  <form class="col-md-12 col-lg-10 offset-1" action="{{ route('store.programme') }}" method="POST">
+  <form class="col-md-12 col-lg-10 offset-1" action="{{ route('store.programme') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="NOM">Nom Programme</label>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-6">
         <label for="filiere">Filiere</label>
         <select name="filiere_id" id="filiere_id" class="form-control">
           <option value="">Choisir la filiére</option>
@@ -28,7 +28,7 @@
         @error('filiere_id')<p class="text-danger">{{ $message }}@enderror</p>
       </div>
 
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-6">
         <label for="status">Status</label>
         <select name="statu_id" id="statu_id" class="form-control">
           <option value="">Choisir Statut</option>
@@ -42,37 +42,51 @@
 
 
     <div class="form-group">
-      <label for="modalite">Modalité</label>
-      <select name="modalite_id" id="modalite_id" class="form-control">
-        <option value="">Choisir Modalité</option>
-        @foreach($modalite as $mod)
-        <option value="{{ $mod->id }}">{{ $mod->TYPE }}</option>
+      <label for="niveau_id">Niveau</label>
+      <select name="niveau_id[]" id="niveau_id" class="form-control" multiple>
+        <option value="">Choisir Niveau</option>
+        @foreach($niveau as $niv)
+        <option value="{{ $niv->id }}">{{ $niv->TYPE }}</option>
         @endforeach
       </select>
-      @error('modalite_id')<p class="text-danger">{{ $message }}@enderror</p>
     </div>
 
-    <div class="form-group">
-      <label for="validation">Validation</label>
-      <select name="validation_id" id="validation_id" class="form-control">
-        <option value="">Validation</option>
-        @foreach($validation as $val)
-        <option value="{{ $val->id }}">{{ $val->NOM }}</option>
-        @endforeach
-      </select>
-      @error('validation_id')<p class="text-danger">{{ $message }}@enderror</p>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="modalite">Modalité</label>
+        <select name="modalite_id" id="modalite_id" class="form-control">
+          <option value="">Choisir Modalité</option>
+          @foreach($modalite as $mod)
+          <option value="{{ $mod->id }}">{{ $mod->TYPE }}</option>
+          @endforeach
+        </select>
+        @error('modalite_id')<p class="text-danger">{{ $message }}@enderror</p>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="validation">Validation</label>
+        <select name="validation_id" id="validation_id" class="form-control">
+          <option value="">Validation</option>
+          @foreach($validation as $val)
+          <option value="{{ $val->id }}">{{ $val->NOM }}</option>
+          @endforeach
+        </select>
+        @error('validation_id')<p class="text-danger">{{ $message }}@enderror</p>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="partenaire">Partenaire</label>
+        <select name="partenaire_id" id="partenaire_id" class="form-control">
+          <option value="">Parteneaire</option>
+          @foreach($partenaire as $part)
+          <option value="{{ $part->id }}">{{ $part->NOM }}</option>
+          @endforeach
+        </select>
+        @error('partenaire_id')<p class="text-danger">{{ $message }}@enderror</p>
+      </div>
+
     </div>
 
-    <div class="form-group">
-      <label for="partenaire">Partenaire</label>
-      <select name="partenaire_id" id="partenaire_id" class="form-control">
-        <option value="">Parteneaire</option>
-        @foreach($partenaire as $part)
-        <option value="{{ $part->id }}">{{ $part->NOM }}</option>
-        @endforeach
-      </select>
-      @error('partenaire_id')<p class="text-danger">{{ $message }}@enderror</p>
-    </div>
 
     <div class="form-group col-md-12 col-lg-10 offset-1">
       <button type="submit" class="btn  mt-3 btn-lg btn-block text-white" style="background-color:rgb(246, 120, 58);">Enregister</button>

@@ -22,7 +22,7 @@ class utilisateur
         }
         else
         {
-            return redirect('utilisateur/login');
+            return redirect('utilisateur/register');
         }
      
         

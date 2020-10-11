@@ -7,8 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Classe extends Model
 {
     protected $guarded = [];
-    public function programmetech()
+
+    public function serie()
     {
-        return $this->hasMany(ProgrammeTech::class);
+        return $this->belongsToMany(Serie::class,'techniques','classe_id','serie_id');
     }
+
+    public function matiere()
+    {
+        return $this->belongsToMany(Matiere::class, 'techniques', 'classe_id','matiere_id');
+    }
+
+    
+
+
 }
