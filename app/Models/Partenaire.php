@@ -12,4 +12,9 @@ class Partenaire extends Model
     {
        return $this->hasMany(Programme::class);
     }
+
+  public function demandeprogramme()
+  {
+    return $this->hasMany(DemandeProgramme::class, 'demande_referentiel', 'referentiel_id', 'demande_id');
+  }
 }

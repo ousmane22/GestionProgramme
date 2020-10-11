@@ -8,8 +8,13 @@ class Serie extends Model
 {
     protected $guarded = [];
 
-    public function matieres()
+    public function classe()
     {
-        return $this->belongsToMany(Matiere::class);
+        return $this->belongsToMany(Classe::class, 'techniques','serie_id','classe_id');
+    }
+
+    public function matiere()
+    {
+        return $this->belongsToMany(Matiere::class, 'techniques', 'serie_id','matiere_id');
     }
 }

@@ -27,11 +27,12 @@ class EFPTController extends Controller
         $efGarcon = DB::table('programms')
             ->sum('Effectif_garcon');
 
-
         $efFille = DB::table('programms')
             ->sum('Effectif_fille');
 
-        return view('EFPT.show',compact('etablissement', 'efGarcon', 'efFille'));
+        $total = $efFille + $efGarcon;
+      
+        return view('EFPT.show',compact('etablissement', 'efGarcon', 'efFille','total'));
     }
 
     public function Showdepartement($id)
@@ -62,51 +63,84 @@ class EFPTController extends Controller
     
 
     public function ProparEtablissement($id)
-    {      
-        $eta_pro = Programm::where('etablissement_id',$id)->get();  
-        return view('EFPT.showProg',compact('eta_pro'));
+    {
+          
+        $eta_pro = Programm::where('etablissement_id',$id)->get();
+        $etablissement = Etablissement::where('id', $id)->get();
+       
+        return view('EFPT.showProg',compact('eta_pro', 'etablissement'));
     }
 
 
 
-    public function ProgrammeInfo($id)
+    public function ProgrammeInfo($id,$id1,$id2,$id3)
     {
-
-        $programme = Programm::where('programme_id',$id)
+       
+    
+        $programme = Programm::where('programme_id', $id)
+            ->where('etablissement_id',$id1)
         ->get();
 
         $pro = Programme::findOrFail($id)
         ->where('id',$id)
         ->get();
 
+       $etablissement = Etablissement::with('programm')
+       ->where('departement_id',$id2)->get();
+
+        $region = Departement::with('etablissement')
+        ->where('region_id',$id3)->get();
+
         //statistique departemental
-        $dep_eta_sFille = DB::table('programms')
-        ->join('etablissements','etablissements.id','=','programms.etablissement_id')
-        ->where('programme_id', $id)
-        ->sum('Effectif_fille');
   
-        $dep_eta_sGarcon = DB::table('programms')
-        ->join('etablissements', 'etablissements.id', '=', 'programms.etablissement_id')
+        $dep_eta_sFille = Programm::join('etablissements', 'etablissements.id', '=', 'programms.etablissement_id')
         ->where('programme_id', $id)
-        ->sum('Effectif_garcon');
+        ->where('etablissements.departement_id',$id2)
+         ->sum('Effectif_fille');
+
+        $dep_eta_sGarcon = DB::table('programms')
+        ->where('programme_id', $id)
+        ->where('etablissements.departement_id',$id2)
+        ->join('etablissements', 'etablissements.id', '=', 'programms.etablissement_id')
+         ->sum('Effectif_garcon');
 
         //statistique regional
         $sFille = DB::table('programms')
         ->join('etablissements', 'etablissements.id', '=', 'programms.etablissement_id')
         ->join('departements', 'etablissements.departement_id', '=', 'departements.id')
-        ->where('programme_id',$id)
+        ->where('programme_id', $id)
+            ->where('departements.region_id', $id3)
         ->sum('Effectif_fille');
 
-
+       
         $sGarcon = DB::table('programms')
         ->join('etablissements', 'etablissements.id', '=', 'programms.etablissement_id')
         ->join('departements', 'etablissements.departement_id', '=', 'departements.id')
         ->where('programme_id', $id)
+            ->where('departements.region_id', $id3)
         ->sum('Effectif_garcon');
 
+
+        $nationalFille = Programm::where('programme_id', $id)
+        ->sum('Effectif_fille');
+
+        $nationalGarcon = Programm::where('programme_id', $id)
+        ->sum('Effectif_garcon');
+       
+       
         
-        return view('EFPT.infoPro', compact('programme','pro', 'dep_eta_sGarcon', 'dep_eta_sFille',
-            'sGarcon','sFille'));
+
+        
+        return view('EFPT.infoPro', compact(
+            'programme',
+            'dep_eta_sGarcon',
+            'dep_eta_sFille',
+            'sGarcon','sFille',
+            'nationalFille',
+            'nationalGarcon',
+            'pro',
+           
+           ));
     }
 
     /**

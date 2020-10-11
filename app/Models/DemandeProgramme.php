@@ -36,9 +36,18 @@ class DemandeProgramme extends Model
 
     public function referentiel()
     {
-        return $this->belongsToMany(Referentiel::class,'demande_referentiel','demande_id','referentiel_id');
+        return $this->belongsToMany(Referentiel::class, 'demrefprogs','demande_id','referentiel_id');
     }
 
+    public function niveau()
+    {
+        return $this->belongsToMany(Niveau::class, 'demrefprogs', 'demande_id', 'niveau_id');
+    }
+
+    public function partenaire()
+    {
+        return $this->belongsTo(Partenaire::class);
+    }
 
     
 

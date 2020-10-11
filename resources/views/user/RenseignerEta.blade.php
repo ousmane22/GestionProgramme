@@ -55,7 +55,7 @@
 
       <div class="col">
         <label for="anne_niv">Année Académique</label>
-        <input type="date" class="form-control" name="anne_niv">
+        <input type="number" class="form-control" name="anne_niv">
         @error('anne_niv')<p class="text-danger">{{ $message }}@enderror</p>
       </div>
     </div>

@@ -23,14 +23,14 @@
              <p class="font-size-sm text-center">
                  <a class="link-effect"> GUIDE FORMATEUR</a>
              </p>
-             <a class="btn btn-block text-white push" style="background-color:rgb(246, 120, 58);" href="files/guide_formateur.pdf">
+             <a class="btn btn-block text-white push" style="background-color:#020031" ; href="files/guide_formateur.pdf">
                  <i class="fa fa-download mr-1"></i> Voir Document
              </a>
 
              <p class="font-size-sm text-center">
                  <a class="link-effect"> GUIDE EVALUATION</a>
              </p>
-             <a class="btn btn-block text-white push" style="background-color:rgb(246, 120, 58);" href="files/Guide_EVALUATION.pdf">
+             <a class="btn btn-block text-white push" style="background-color:#020031" ; href="files/Guide_EVALUATION.pdf">
                  <i class="fa fa-download mr-1"></i> Voir Document
              </a>
          </div>
@@ -42,7 +42,7 @@
              <p class="font-size-sm text-center">
                  <a class="link-effect" href=""></a>
              </p>
-             <a class="btn btn-block push text-white" style="background-color:rgb(246, 120, 58);" href="">
+             <a class="btn btn-block push text-white" style="background-color:#020031" ; href="">
                  <i class="fa fa-download mr-1"></i>Voir Document
              </a>
          </div>
@@ -54,7 +54,7 @@
              <p class="font-size-sm text-center">
                  <a class="link-effect" href=""></a>
              </p>
-             <a class="btn btn-block push text-white" style="background-color:rgb(246, 120, 58);" href="">
+             <a class="btn btn-block push text-white" style="background-color:#020031" ; href="">
                  <i class="fa fa-download mr-1"></i>Voir Document
              </a>
          </div>
@@ -66,7 +66,7 @@
              <p class="font-size-sm text-center">
                  <a class="link-effect" href=""></a>
              </p>
-             <a class="btn btn-block push text-white" style="background-color:rgb(246, 120, 58);" href="">
+             <a class="btn btn-block push text-white" style="background-color:#020031" ; href="">
                  <i class="fa fa-download mr-1"></i>Voir Document
              </a>
          </div>

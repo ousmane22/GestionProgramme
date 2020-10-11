@@ -20,6 +20,7 @@
 
             <tbody>
                @foreach($eta_pro as $prog)
+               @foreach($etablissement as $eta)
                <tr>
                   <td class="text-center ">
                      {{$prog->programme->filiere->NOM}}
@@ -29,12 +30,13 @@
                   </td>
                   <td class="text-center ">
                      {{$prog->niveau->TYPE}}
-                    
+
                   </td>
                   <td>
-                     <a href="{{ route('prog.info',$prog->programme->id) }}" class="btn text-white" style="background-color:rgb(246, 120, 58);">Voir</a>
+                     <a href="{{ route('prog.info',[$prog->programme->id ,$prog->etablissement_id,$eta->departement_id,$eta->departement->region_id]) }}" class="btn text-white" style="background-color:rgb(246, 120, 58);">Voir</a>
                   </td>
                </tr>
+               @endforeach
                @endforeach
             </tbody>
 

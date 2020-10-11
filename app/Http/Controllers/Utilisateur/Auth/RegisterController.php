@@ -50,9 +50,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nom' => 'required|max:255|string|regex:/^[a-zA-Z]+$/u',
-            'prenom' => 'required|max:255|string|regex:/^[a-zA-Z]+$/u',
-            'fonction' => 'required|string|regex:/^[a-zA-Z]+$/u',
+            'nom' => 'required|max:255',
+            'type' => 'required',
+            'prenom' => 'required|max:255|string',
+            'fonction' => 'required|string',
             'structure' => 'required|string',
             'telephone' => 'required|numeric',
             'adresse' => 'required|string',
@@ -71,6 +72,7 @@ class RegisterController extends Controller
     {
         return Utilisateur::create([
             'nom' => $data['nom'],
+            'type'=> $data['type'],
             'prenom' => $data['prenom'],
             'fonction' => $data['fonction'],
             'structure' => $data['structure'],
@@ -79,6 +81,9 @@ class RegisterController extends Controller
             'adresse' => $data['adresse'],
             'password' => bcrypt($data['password']),
         ]);
+      
+        return view('utilisateur/home', compact('programme', 'etablissement', 'filiere', 'referentiel', 'niveau', 'partenaire'));
+
     }
 
     /**

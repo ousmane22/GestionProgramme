@@ -39,7 +39,7 @@ class Programme extends Model
 
     public function referentiel()
     {
-        return $this->hasMany(Referentiel::class);
+        return $this->belongsToMany(Referentiel::class, 'programme_niveau', 'programme_id', 'referentiel_id');
     }
     
     
@@ -52,5 +52,10 @@ class Programme extends Model
     public function demandeprogramme()
     {
         return $this->hasMany(DemandeProgramme::class);
+    }
+
+    public function niveau()
+    {
+        return $this->belongsToMany(Niveau::class,'programme_niveau', 'programme_id','niveau_id');
     }
 }

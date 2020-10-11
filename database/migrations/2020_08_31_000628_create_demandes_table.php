@@ -20,9 +20,11 @@ class CreateDemandesTable extends Migration
             $table->foreignId('utilisateur_id')->constrained();
             $table->foreignId('etablissement_id')->constrained();
             $table->foreignId('filiere_id')->constrained();
+            $table->foreignId('partenaire_id')->constrained();
             $table->string('appui');
             $table->string('RessourceNecessaire');
             $table->string('motif');
+            $table->text('motivation');
             $table->string('etat')->default('en attente');
             $table->timestamps();
         });
